@@ -13,8 +13,8 @@ public class PajakService {
         var child = ((Map<String, Object>) body.get("employee")).get("childs");
         var salaryComponents = (List<Map<String, Object>>) body.get("komponengaji");
 
-        var sumSalaryPerMonth = salaryComponents.stream().filter(e -> e.get("type").equals( "earning")).mapToInt(e -> (int) e.get("amount")).sum();
-        var sumDeductionPerMonth = salaryComponents.stream().filter(e -> e.get("type").equals( "deduction")).mapToInt(e -> (int) e.get("amount")).sum();
+        var sumSalaryPerMonth = salaryComponents.stream().filter(e -> e.get("type").equals("earning")).mapToInt(e -> (int) e.get("amount")).sum();
+        var sumDeductionPerMonth = salaryComponents.stream().filter(e -> e.get("type").equals("deduction")).mapToInt(e -> (int) e.get("amount")).sum();
 
         var nettSalary = sumSalaryPerMonth - sumDeductionPerMonth;
 
@@ -75,6 +75,6 @@ public class PajakService {
         }
 
         var taxPerMonth = taxPerYear / 12;
-        return (int) Math.ceil(taxPerMonth/1_000) * 1_000;
+        return (int) Math.ceil(taxPerMonth / 1_000) * 1_000;
     }
 }
