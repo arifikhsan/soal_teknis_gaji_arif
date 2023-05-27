@@ -18,7 +18,7 @@ public class PajakController {
 
     @PostMapping("/hitungpajak")
     @ResponseBody
-    public Object hitungPajak(@RequestBody Map<String, Object> dto) {
+        public int hitungPajak(@RequestBody Map<String, Object> dto) {
         return service.hitungPajak(dto);
     }
 }
